@@ -1,0 +1,7 @@
+#canvasWrapper {
+  display: flex;
+}
+
+#errorMessage {
+  color: red;
+}
