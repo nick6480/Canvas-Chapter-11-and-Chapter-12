@@ -7,14 +7,11 @@ class Umo {
     constructor(canvas, color, radius, movement) {
         this.canvas = canvas;
         this.x = this.canvas.getWidth() / 2;
-        this.y = radius;
+        this.y = this.canvas.getHeight() / 2;
         this.r = radius;
         this.dx = 1;
         this.color = color;
         this.movement = movement;
-        if (movement == false) {
-          this.y = this.canvas.getHeight() / 2;
-        }
     }
 
     draw() {
@@ -26,12 +23,12 @@ class Umo {
     }
 
     move() {
-        if (this.movement == true) {
+        if (this.movement) {
 
           this.x += this.dx;
           this.y += this.dx;
 
-          
+
           let newX  = this.canvas.getWidth()/2.2 * Math.cos(angle * (Math.PI/180));
           let newY = this.canvas.getHeight()/2.2 * Math.sin(angle * (Math.PI/180));
 
@@ -73,8 +70,10 @@ const go = function () {
     canvas = new Canvas('canvas', 'black');
     let c = new Umo(canvas, 'aqua', 10, true);
     let c2 = new Umo(canvas, 'yellow', 30, false);
-    arr.push(c2);
+
     arr.push(c);
+    arr.push(c2);
+
     repeater();
 }
 
